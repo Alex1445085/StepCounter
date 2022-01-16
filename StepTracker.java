@@ -28,9 +28,8 @@ public class StepTracker {
 
     void statistic(int month) {
         ArrayList<Integer> stepInMonth = new ArrayList<>();
-        // month--;
         stepInMonth = stepMap.get(month - 1);
-        int sumSteps = 0, maxSteps = 0, bestSerie = 0, serieLength = 0;   //, vol = 0
+        int sumSteps = 0, maxSteps = 0, bestSerie = 0, serieLength = 0;
         double distance = 0, caloriesOff = 0;
         for ( int vol : stepInMonth)  {
             sumSteps = sumSteps + vol;
@@ -46,8 +45,7 @@ public class StepTracker {
                 }
             }
         }
-      //  distance = distance = sumSteps * 75 / 1000;
-      //  caloriesOff = sumSteps * 50 / 1000;
+
         getSteps(month, stepInMonth);
         System.out.println("Общее количество пройденных шагов за " + month + "-й месяц  : " + sumSteps);
         System.out.println("Максимальное количество шагов за день - " + maxSteps);
@@ -69,7 +67,6 @@ public class StepTracker {
 
     void getSteps(int month, ArrayList<Integer> stepInMonth) {
         System.out.println("В месяце " + month + ":");
-      //  for (int i = 0; i < steps.size(); i++) {
         for (int i = 0; i < stepInMonth.size(); i++) {
             System.out.print((i + 1) + " день: " + stepInMonth.get(i));
             if (i < (stepInMonth.size() - 1)) {
