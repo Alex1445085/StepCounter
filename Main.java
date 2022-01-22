@@ -1,8 +1,11 @@
 import java.util.Scanner;
+
 public class Main {
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        StepTracker step = new StepTracker();
+        StepTracker stepTracker = new StepTracker();
+
         while (true) {
             printMenu();
             String menuChoise = scan.next();
@@ -26,7 +29,7 @@ public class Main {
                         if (stepToSet < 0) {
                             System.out.println("Так не бывает!");
                         } else {
-                            step.stepAdd(monthAdd, dateAdd, stepToSet);
+                            stepTracker.stepAdd(monthAdd, dateAdd, stepToSet);
                         }
                     }
                 }
@@ -37,18 +40,20 @@ public class Main {
                 if ((month < 1) || (month > 12)) {
                     System.out.println("Такого месяца не бывает!");
                 } else {
-                    step.statistic(month);
+                    stepTracker.statistic(month);
                 }
             } else if (menuChoise.equals("3")) {
-                System.out.println("Введите новую цель по количеству шаеов в день:");
+                System.out.println("Введите новую цель по количеству шагов в день:");
                 int newLimitStep = scan.nextInt();
-                step.changeLimitStep(newLimitStep);
+                stepTracker.changeLimitStep(newLimitStep);
             } else {
                 System.out.println("Такой команды пока нет.");
             }
         }
     }
+
     public static void printMenu(){
+
         System.out.println("Что вы хотите сделать:");
         System.out.println("1 - ввести количество шагов за определённый день");
         System.out.println("2 - напечатать статистику за определённый месяц");
